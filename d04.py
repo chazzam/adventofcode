@@ -10,7 +10,7 @@ def get_options(argv=None):
   Check for all supported flags and do any available pre-processing
   """
   opts = argparse.ArgumentParser(
-      description='http://adventofcode.com/2016/day/3')
+      description='http://adventofcode.com/2016/day/4')
 
   opts.add_argument(
     "-input", "-i",
