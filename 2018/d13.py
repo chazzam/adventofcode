@@ -147,6 +147,7 @@ with open("completed/input_c13.txt", "r") as f:
       # add an empty first line
       line_len = len(line) + 2
       board.append(" " * line_len)
+      first_line = False
     # pad left and right edges with empty spaces
     board.append(" " + line + " ")
   # add an empty last line
@@ -167,8 +168,10 @@ for i in range(1, len(board)):
     left  = board[i][index - 1]
     right = board[i][index + 1]
     down  = board[i + 1][index]
-    #print("i:{} ind:{}:: '{},{},{},{}' len:{} line:'{}'".format(i,index,up,left,right,down, len(board[i]), board[i]))
     loc = replace_cart_location(left, up, right, down)
+    if loc == " ":
+      print("i:{} ind:{}:: '{},{},{},{}' len:{} lines:'\n{}\n{}\n{}'\n".format(i,index,up,left,right,down, len(board[i]), board[i - 1], board[i], board[i + 1]))
+    
     #print(loc)
     board[i] = board[i][:index] + loc + board[i][(index + 1):]
 
@@ -176,3 +179,5 @@ for i in range(1, len(board)):
 # process tick through carts
 #for cart in sorted(carts, key=lambda c: c['row']*10000 + c['col']):
  # pass
+
+ # remember to subtract one each from row and column when reporting collision coordinates
