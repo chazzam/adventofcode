@@ -135,7 +135,6 @@ def replace_cart_location(left, up, right, down):
 with open("completed/input_c13.txt", "r") as f:
   first_line = True
   line_len = 0
-  max_len = 0
   while True:
     line = f.readline()
     if not line:
